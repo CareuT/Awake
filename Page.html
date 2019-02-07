@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<body style="background-color: gray;" onload="g()">
+    <script type="text/javascript">
+    var c;
+    var ctx;
+    var grd;
+    var c1;
+    var c2;
+    var c3;
+    var c4;
+    var c5;
+
+    function g() {
+        c = document.getElementById("ensemble");
+        ctx = c.getContext("2d");
+        c1 = document.getElementById("cStop1").value;
+        c2 = document.getElementById("cStop2").value;
+        c3 = document.getElementById("cStop3").value;
+        c4 = document.getElementById("cStop4").value;
+        c5 = document.getElementById("cStop5").value;
+
+        //Gradient
+        grd = ctx.createLinearGradient(0, 0, 270, 0);
+        grd.addColorStop(0, c1);
+        grd.addColorStop(0.25, c2);
+        grd.addColorStop(0.50, c3);
+        grd.addColorStop(0.75, c4);
+        grd.addColorStop(1, c5);
+        ctx.fillStyle = grd;
+        ctx.fillRect(0, 0, 300, 200);
+    }
+    </script>  
+    <h1 style="color: blue;">Make-A-Gradient</h1>
+    <canvas id="ensemble" width="300" height="200"></canvas>
+    <br>
+    Select Color 1:
+    <input type="color" id="cStop1">
+    Select Color 2:
+    <input type="color" id="cStop2">
+    <br>
+    Select Color 3:
+    <input type="color" id="cStop3">
+    Select Color 4:
+    <input type="color" id="cStop4">
+    <br>
+    Select Color 5:
+    <input type="color" id="cStop5">
+    <button style="font-size: 30;" onclick="g()">enter</button>
+    </body>
+</html>
